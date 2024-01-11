@@ -1,5 +1,10 @@
 -- Script to initialise variables necessary for the module to run
 
+function DEBUG(fmt, ...)
+    debug.disableEventLog(no)
+    print(string.format(fmt, ...))
+end
+
 moduleName="utility"
 players={}
 notifyOrder={}
@@ -17,6 +22,7 @@ RANKS={
     ROOM_OWNER=4,
     ROOM_ADMIN=3,
     ANY=1
+    BAN=0
 }
 
 modes={
@@ -151,3 +157,4 @@ tfm.exec.disableAfkDeath(true)
 
 _,_,suffix=string.find((tfm.get.room.name:sub(1,2)=="e2" and tfm.get.room.name:sub(3)) or tfm.get.room.name,"%d+(.+)$")
 local roomSuffix = string.match(tfm.get.room.name, "%d+(.-)$")
+
