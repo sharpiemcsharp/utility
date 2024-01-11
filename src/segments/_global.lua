@@ -208,8 +208,18 @@ _S.global = {
                     end, arg)
                 end
             },
-            sham={rank=RANKS.ROOM_ADMIN,fnc=function(player,...) _S.global.callbacks.chatCommand.shaman.fnc(player,...) end},
-            s={rank=RANKS.ROOM_ADMIN,fnc=function(player,...) _S.global.callbacks.chatCommand.shaman.fnc(player,...) end},
+            sham={rank=RANKS.ROOM_ADMIN,fnc=function(player,...) _S.global.callbacks.chatCommand.shaman.fnc(player, ...) end},
+            s={rank=RANKS.ROOM_ADMIN,fnc=function(player,...) _S.global.callbacks.chatCommand.shaman.fnc(player, ...) end},
+            unshaman={
+                rank=RANKS.ROOM_ADMIN,
+                fnc=function(player,...)
+                    local arg={...}
+                    executeCommand(player, function(a)
+                        tfm.exec.setShaman(a, false)
+                    end, arg)
+                end
+            },
+            unsham={rank=RANKS.ROOM_ADMIN,fnc=function(player,...) _S.global.callbacks.chatCommand.unshaman.fnc(player, ...) end},
             mort={
                 rank=RANKS.ANY,
                 hide=true,
