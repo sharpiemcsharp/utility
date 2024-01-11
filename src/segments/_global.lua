@@ -796,6 +796,18 @@ _S.global = {
                     end
                 end
             },
+            size={
+                rank=RANKS.ROOM_ADMIN,
+                fnc=function(player,...)
+                    local arg={...}
+                    executeCommand(player, function(target, size)
+                        if ranks[player.name]<=RANKS.ROOM_ADMIN and (tonumber(size) or 0) > 1.5 then
+                            size = 1.5
+                        end
+                        tfm.exec.changePlayerSize(target, size)
+                    end, arg)
+                end
+            },
             spawn={
                 rank=RANKS.ROOM_ADMIN,
                 fnc=function(player,id,x,y,num,angle,vx,vy)
