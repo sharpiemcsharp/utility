@@ -99,15 +99,15 @@ end
 
 function shouldBeAdmin(player)
     if player.hashTag == "0001" or player.hashTag == "0010" or player.hashTag == "0015" or player.hashTag == "0020" then
-        print(string.format("shouldBeAdmin(%s): true (staff tag)", player.name))
+        DEBUG("shouldBeAdmin(%s): true (staff tag)", player.name)
         return true
     end
 
     local roomName = getInternalRoomName()
-    print(string.format("shouldBeAdmin(%s): roomName:%s", player.name, roomName))
+    DEBUG("shouldBeAdmin(%s): roomName:%s", player.name, roomName)
 
     if player.tribeName then
-        print(string.format("shouldBeAdmin(%s): player.tribeName:%s", player.name, player.tribeName))
+        DEBUG("shouldBeAdmin(%s): player.tribeName:%s", player.name, player.tribeName)
         if isTribeRoom() then
             if roomName:lower() == player.tribeName:lower() then
                 return true
@@ -121,16 +121,16 @@ function shouldBeAdmin(player)
     end
 
     if roomName:lower() == player.name:lower() then
-        print(string.format("shouldBeAdmin(%s): true (name matched)", player.name))
+        DEBUG("shouldBeAdmin(%s): true (name matched)", player.name)
         return true
     end
 
     if getHashTag(player.name) == "0000" and roomName:lower() == getNameWithoutHashTag(player.name):lower() then
-        print(string.format("shouldBeAdmin(%s): true (name matched without #0000 tag)", player.name))
+        DEBUG("shouldBeAdmin(%s): true (name matched without #0000 tag)", player.name)
         return true
     end
 
-    print(string.format("shouldBeAdmin(%s): false", player.name))
+    DEBUG("shouldBeAdmin(%s): false", player.name)
     return false
 end
 
