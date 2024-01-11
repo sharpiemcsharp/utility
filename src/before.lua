@@ -21,7 +21,7 @@ RANKS={
     STAFF=5,
     ROOM_OWNER=4,
     ROOM_ADMIN=3,
-    ANY=1
+    ANY=1,
     BAN=0
 }
 
