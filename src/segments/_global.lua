@@ -28,7 +28,7 @@ _S.global = {
         end
         local str=("<a href='event:global select all %s %s'>[%s]</a> <a href='event:global select none %s %s'>[%s]\n</a>"):format(x,y,translate("all",player.lang),x,y,translate("none",player.lang))
         local total=0
-        local selected=0    
+        local selected=0
         for n,p in pairs(players) do
             str=str.."\n<font color='#"..(player.selected[n] and "2ECF73" or "C2C2DA").."'><a href='event:global select "..n.." "..x.." "..y.."'>"..(ranks[n]>=RANKS.ROOM_ADMIN and "★ " or "")..n.."</a>"
             total=total+1
@@ -313,7 +313,7 @@ _S.global = {
                 rank=RANKS.ROOM_ADMIN,
                 fnc = function()
                     for objectId in pairs(SPAWNEDOBJS) do
-                        tfm.exec.removeObject(objectId) 
+                        tfm.exec.removeObject(objectId)
                     end
                     SPAWNEDOBJS = {}
                 end
@@ -348,9 +348,9 @@ _S.global = {
                 fnc=function(player,power,...)
                     local arg={...}
                     power=tonumber(power) or 100
-                    executeCommand(player, function(targetName)                         
+                    executeCommand(player, function(targetName)
                         local target = targetName and players[targetName] or player
-                        target.speedPower=tonumber(power) or 100 
+                        target.speedPower=tonumber(power) or 100
                         toggleSegment(target.name, "speed", not tonumber(arg[1]) and not target.activeSegments.speed or tonumber(arg[1]) and true)
                     end, arg)
                 end
@@ -530,7 +530,6 @@ _S.global = {
                             tfm.exec.setGameTime((currentTime/1000)+time)
                             tfm.exec.chatMessagePublic("addedtime",players,player.name,time)
                         end
-                        
                     elseif SETTINGS.VOTE_TIME then
                         local totalVotes=0
                         for _ in pairs(SETTINGS.VOTE_TIME.votes) do
@@ -665,7 +664,6 @@ _S.global = {
                     elseif toggle=="on" then SETTINGS.SKILLS=true
                     elseif toggle=="off" then SETTINGS.SKILLS=false
                     end
-                    
                     tfm.exec.disableAllShamanSkills(SETTINGS.SKILLS)
                     tfm.exec.chatMessagePublic(SETTINGS.SKILLS and "enabled" or "disabled",players)
                 end
@@ -913,7 +911,6 @@ _S.global = {
                             toggleSegment(target,"fireworks",not players[target].activeSegments.fireworks)
                         end, arg)
                     end
-                        
                 end
             },
             explosion={
