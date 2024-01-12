@@ -306,7 +306,7 @@ _S.global = {
                 fnc=defaultToggleSegmentChatCallback("inspect")
             },
             prophunt={
-                rank=RANKS.ALL,
+                rank=RANKS.ADMIN,
                 fnc=defaultToggleSegmentChatCallback("prophunt")
             },
             clear={
