@@ -319,7 +319,7 @@ _S.global = {
                 end
             },
             name={
-                rank=RANKS.ANY,
+                rank=RANKS.ROOM_ADMIN,
                 fnc=function(player,color,...)
                     local arg={...}
                     if color then
