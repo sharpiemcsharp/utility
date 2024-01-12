@@ -135,7 +135,7 @@ _S.fireworks = {
         if fireworkSet ~= nil then
             local id = fireworkSet[1]
             if type(id) == 'table' then
-                id = id[math.random(#id)]   
+                id = id[math.random(#id)]
             end
             _S.fireworks.firework(id, x, y, vx, -20, 0, math.random(8, 9) / 10, 5, 30, _S.fireworks.explosionData[fireworkSet[2]])
         end
@@ -173,7 +173,6 @@ _S.fireworks = {
                 local x = params[1] + dx
                 local dy = params[4] * t + 0.5 * params[6] * t^2 -- change in y = vyi*changeintime+0.5*ay*t^2
                 local y = params[2] + dy
-    
                 local f = explosion[1]
                 local particles = explosion[2]
                 f(params[7], particles, x, y)
