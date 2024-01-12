@@ -19,7 +19,6 @@ _S.pet = {
                     if pet.stay == 1 then
                         x=-(tfm.get.room.objectList[pet.id].x-tfm.get.room.playerList[name].x)
                         y=-(tfm.get.room.objectList[pet.id].y-tfm.get.room.playerList[name].y)
-                    
                     elseif pet.stay == 2 then
                         if math.random(10) < 5 then
                             if math.random(10) < 2 then
@@ -38,7 +37,7 @@ _S.pet = {
                                     x=-(tfm.get.room.objectList[pet.id].x-math.random(-50, 50))
                                 else
                                     x=(tfm.get.room.objectList[pet.id].x-math.random(-50, 50))
-                                end                                 
+                                end
                             end
                         end
                     elseif pet.stay == 3 then
@@ -64,12 +63,12 @@ _S.pet = {
                     elseif pet.stay == 4 then
                         if tfm.get.room.objectList[pet.ball] then
                             x=-(tfm.get.room.objectList[pet.id].x-tfm.get.room.objectList[pet.ball].x)
-                            y=-(tfm.get.room.objectList[pet.id].y-tfm.get.room.objectList[pet.ball].y)  
+                            y=-(tfm.get.room.objectList[pet.id].y-tfm.get.room.objectList[pet.ball].y)
                             if pythag(tfm.get.room.objectList[pet.id].x, tfm.get.room.objectList[pet.id].y, tfm.get.room.objectList[pet.ball].x, tfm.get.room.objectList[pet.ball].y, 20) then
                                 bx=(tfm.get.room.objectList[pet.ball].x-tfm.get.room.objectList[pet.id].x)
-                                by=(tfm.get.room.objectList[pet.ball].y-tfm.get.room.objectList[pet.id].y)  
+                                by=(tfm.get.room.objectList[pet.ball].y-tfm.get.room.objectList[pet.id].y)
                                 tfm.exec.moveObject(pet.ball, 0, 0, false, bx, by, true)
-                            end 
+                            end
                         else
                             pet.treat=false
                             pet.stay=2
@@ -93,7 +92,6 @@ _S.pet = {
                     local multiplier=highest/maxpower
                     if x==0 then x=1 end if y==0 then y=1 end
                     --if (tfm.get.room.objectList[pet.id].x or 0 >(map.length or 800)-100 and x>0) or (tfm.get.room.objectList[pet.id].x or 0 <100 and x<0) then x=x*-1 end
-                    
                     if pet.stay==1 then
                         tfm.exec.moveObject(pet.id,0,0,false,math.abs(x)<120 and 1 or (x/multiplier),(y/multiplier)+(math.abs(x)>120 and -40 or 1),false)
                     elseif pet.stay==2 then
@@ -108,7 +106,6 @@ _S.pet = {
                         pet.direction=direction
                         _S.pet.showImage(pet,direction)
                     end
-                    
                 end
             end
         end,
