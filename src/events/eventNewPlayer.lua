@@ -67,19 +67,23 @@ function eventNewPlayer(name)
             end
         end
     end)
+
     if SETTINGS.QUICKRESPAWN then
         toRespawn[name] = os.time()
     end
+
     if _S.global.tempMapName then
         ui.setMapName("<J>" .. _S.global.tempMapName)
     else
         setMapName()
     end
+
     if map.bg then
         for i, image in pairs(map.bg) do
             tfm.exec.addImage(image.img, "?" .. (1 - i), image.x, image.y)
         end
     end
+
     if map.fg then
         for i, image in pairs(map.fg) do
             tfm.exec.addImage(image.img, "!" .. (50 + i), image.x, image.y)
