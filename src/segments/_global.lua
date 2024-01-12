@@ -894,8 +894,8 @@ _S.global = {
                 rank=RANKS.ROOM_ADMIN,
                 fnc=function()
                     _S.bubbles.disabled = not _S.bubbles.disabled
-                    if not _S.bubbles.disabled then 
-                        _S.bubbles.callbacks.newGame() 
+                    if not _S.bubbles.disabled then
+                        _S.bubbles.callbacks.newGame()
                         _S.bubbles.shamanObjects = {}
                     else
                         for _, id in pairs(_S.bubbles.shamanObjects) do
